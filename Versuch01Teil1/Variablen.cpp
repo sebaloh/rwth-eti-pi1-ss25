@@ -22,8 +22,8 @@ int main()
     std::cout << "2. Ganzzahl eingeben: " << std::endl;
     std::cin >> iZweite;
 
-    int dSumme = iErste + iZweite;
-    int dQuotient = iErste / iZweite;
+    double dSumme = iErste + iZweite;
+    double dQuotient = iErste / iZweite;
 
     std::cout << "Summe: " << dSumme << std::endl;
     std::cout << "Division: " << dQuotient << std::endl;
