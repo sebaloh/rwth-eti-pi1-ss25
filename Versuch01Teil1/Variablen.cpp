@@ -12,21 +12,13 @@
 
 int main()
 {
-    std::string sVorname;
-    std::string sNachname;
+    int iFeld[2];
     
-    // Hier folgt Ihr eigener Code
+    iFeld[0] = 1;
+    iFeld[1] = 2;
+
+    std::cout << "Index 0: " << iFeld[0] << std::endl;
+    std::cout << "Index 1: " << iFeld[1] << std::endl;
     
-    std::cout << "Vorname: " << std::endl;
-    std::cin >> sVorname;
-    std::cout << "Nachname: " << std::endl;
-    std::cin >> sNachname;
-
-    std::string sVornameNachname = sVorname + " " + sNachname;
-    std::string sNachnameVorname = sNachname + ", " + sVorname;
-
-    std::cout << "Vorname Nachname: " << sVornameNachname << std::endl;
-    std::cout << "Nachname, Vorname: " << sNachnameVorname << std::endl;
-
     return 0;
 }
