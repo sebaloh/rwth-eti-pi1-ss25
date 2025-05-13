@@ -22,11 +22,11 @@ int main()
     std::cout << "2. Ganzzahl eingeben: " << std::endl;
     std::cin >> iZweite;
 
-    double dSumme = iErste + iZweite;
-    double dQuotient = iErste / iZweite;
+    double dSummeCast = (double) iErste + (double) iZweite;
+    double dQuotientCast = (double) iErste / (double) iZweite;
 
-    std::cout << "Summe: " << dSumme << std::endl;
-    std::cout << "Division: " << dQuotient << std::endl;
+    std::cout << "Summe: " << dSummeCast << std::endl;
+    std::cout << "Division: " << dQuotientCast << std::endl;
 
     return 0;
 }
