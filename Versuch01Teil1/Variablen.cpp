@@ -12,21 +12,18 @@
 
 int main()
 {
-    int spielfeld[2][3];
-    int iZweite = 1;
+    std::string sVorname;
+    int iName1;
+    int iName2;
 
-	spielfeld[0][0] = 1;
-	spielfeld[0][1] = 2;
-	spielfeld[0][2] = 3;
+    std::cout << "Vorname: " << std::endl;
+    std::cin >> sVorname;
 
-	spielfeld[1][0] = 4;
-	spielfeld[1][1] = 5;
-	spielfeld[1][2] = 6;
+    iName1 = sVorname[0];
+    iName2 = sVorname[1];
 
-	std::cout << spielfeld[0][0] << " " << spielfeld[0][1] << " " << spielfeld[0][2] << std::endl;
-	std::cout << spielfeld[1][0] << " " << spielfeld[1][1] << " " << spielfeld[1][2] << std::endl;
-    
-    std::cout << iZweite << std::endl;
+    std::cout << "Erster Buchstab: " << iName1 << std::endl;
+    std::cout << "Zweiter Buchstabe: " << iName2 << std::endl;
     
     return 0;
 }
