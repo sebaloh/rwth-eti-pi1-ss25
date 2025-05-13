@@ -12,13 +12,18 @@
 
 int main()
 {
-    int iFeld[2];
+    int spielfeld[2][3];
     
-    iFeld[0] = 1;
-    iFeld[1] = 2;
+    spielfeld[0][0] = 1;
+    spielfeld[0][1] = 2;
+    spielfeld[0][2] = 3;
 
-    std::cout << "Index 0: " << iFeld[0] << std::endl;
-    std::cout << "Index 1: " << iFeld[1] << std::endl;
+    spielfeld[1][0] = 4;
+	spielfeld[1][1] = 5;
+	spielfeld[1][2] = 6;
+
+    std::cout << spielfeld[0][0] << " " << spielfeld[0][1] << " " << spielfeld[0][2] << std::endl;
+    std::cout << spielfeld[1][0] << " " << spielfeld[1][1] << " " << spielfeld[1][2] << std::endl;
     
     return 0;
 }
