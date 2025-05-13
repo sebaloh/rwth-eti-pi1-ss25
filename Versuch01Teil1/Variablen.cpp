@@ -12,21 +12,21 @@
 
 int main()
 {
-    int iErste = 0;
-    int iZweite = 0;
+    std::string sVorname;
+    std::string sNachname;
     
     // Hier folgt Ihr eigener Code
     
-    std::cout << "1. Ganzzahl eingeben: " << std::endl;
-    std::cin >> iErste;
-    std::cout << "2. Ganzzahl eingeben: " << std::endl;
-    std::cin >> iZweite;
+    std::cout << "Vorname: " << std::endl;
+    std::cin >> sVorname;
+    std::cout << "Nachname: " << std::endl;
+    std::cin >> sNachname;
 
-    double dSummeCast = (double) iErste + (double) iZweite;
-    double dQuotientCast = (double) iErste / (double) iZweite;
+    std::string sVornameNachname = sVorname + " " + sNachname;
+    std::string sNachnameVorname = sNachname + ", " + sVorname;
 
-    std::cout << "Summe: " << dSummeCast << std::endl;
-    std::cout << "Division: " << dQuotientCast << std::endl;
+    std::cout << "Vorname Nachname: " << sVornameNachname << std::endl;
+    std::cout << "Nachname, Vorname: " << sNachnameVorname << std::endl;
 
     return 0;
 }
