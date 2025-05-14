@@ -25,8 +25,8 @@ int main()
 	iName2 = sVorname[1];
 
 	// A = 65, a = 97 -> diff = 32
-	iPosition1 = (iName1 - 64) % 32;
-	iPosition2 = (iName2 - 64) % 32;
+	iPosition1 = iName1 % 32;
+	iPosition2 = iName2 % 32;
 
 	std::cout << "Position erster Buchstabe im Alphabet: " << iPosition1 << std::endl;
 	std::cout << "Position zweiter Buchstabe im Alphabet: " << iPosition2 << std::endl;
