@@ -181,12 +181,26 @@ bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSp
         return false;
     }
 
-    // Alle Richtungen ueberpruefen bis erster gueltiger Zug gefunden
     for (int j = -1; j <= 1; j++)
     {
         for (int i = -1; i <= 1; i++)
         {
-            // Hier erfolgt jetzt Ihre Implementierung ...
+        	if (spielfeld[posY+j][posX+i] == gegner)
+        	{
+        		int abstand = 2;
+        		do
+        		{
+        			if (spielfeld[posY+abstand*j][posX+abstand*i] == aktuellerSpieler)
+        			{
+        				return true;
+        			}
+        			if (spielfeld[posY+abstand*j][posX+abstand*i] == 0)
+        			{
+        				break;
+        			}
+        			abstand++;
+        		} while (aufSpielfeld(posY+abstand*j, posX+abstand*i));
+			}
         }
     }
     return false;
