@@ -169,7 +169,7 @@ bool aufSpielfeld(const int posX, const int posY)
  * @param aktuellerSpieler Der aktuelle Spieler
  * @param posX Zu ueberpruefende Spalte
  * @param posY Zu ueberpruefende Zeile
- * @return
+ * @return true wenn der Zug gueltig ist, sonst false
  */
 bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpieler, const int posX, const int posY)
 {
@@ -185,21 +185,21 @@ bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSp
     {
         for (int i = -1; i <= 1; i++)
         {
-        	if (spielfeld[posY+j][posX+i] == gegner)
+        	if (aufSpielfeld(posX+i, posY+j) && spielfeld[posY+j][posX+i] == gegner)
         	{
         		int abstand = 2;
         		do
         		{
-        			if (spielfeld[posY+abstand*j][posX+abstand*i] == aktuellerSpieler)
+        			if (aufSpielfeld(posX+abstand*i, posY+abstand*j) && spielfeld[posY+abstand*j][posX+abstand*i] == aktuellerSpieler)
         			{
         				return true;
         			}
-        			if (spielfeld[posY+abstand*j][posX+abstand*i] == 0)
+        			if (aufSpielfeld(posX+abstand*i, posY+abstand*j) && spielfeld[posY+abstand*j][posX+abstand*i] == 0)
         			{
         				break;
         			}
         			abstand++;
-        		} while (aufSpielfeld(posY+abstand*j, posX+abstand*i));
+        		} while (aufSpielfeld(posX+abstand*i, posY+abstand*j));
 			}
         }
     }
@@ -228,17 +228,17 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
     {
         for (int i = -1; i <= 1; i++)
         {
-        	if (spielfeld[posY+j][posX+i] == gegner)
+        	if (aufSpielfeld(posX+i, posY+j) && spielfeld[posY+j][posX+i] == gegner)
 			{
 				int abstand = 2;
 				do
 				{
-					if (spielfeld[posY+abstand*j][posX+abstand*i] == aktuellerSpieler)
+					if (aufSpielfeld(posX+abstand*i, posY+abstand*j) && spielfeld[posY+abstand*j][posX+abstand*i] == aktuellerSpieler)
 					{
 						do
 						{
 							abstand--;
-							if (spielfeld[posY+abstand*j][posX+abstand*i] == gegner)
+							if (aufSpielfeld(posX+abstand*i, posY+abstand*j) && spielfeld[posY+abstand*j][posX+abstand*i] == gegner)
 							{
 								spielfeld[posY+abstand*j][posX+abstand*i] = aktuellerSpieler;
 							}
@@ -246,15 +246,15 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
 							{
 								break;
 							}
-						} while (aufSpielfeld(posY+abstand*j, posX+abstand*i));
+						} while (aufSpielfeld(posX+abstand*i, posY+abstand*j));
 						break;
 					}
-					if (spielfeld[posY+abstand*j][posX+abstand*i] == 0)
+					if (aufSpielfeld(posX+abstand*i, posY+abstand*j) && spielfeld[posY+abstand*j][posX+abstand*i] == 0)
 					{
 						break;
 					}
 					abstand++;
-				} while (aufSpielfeld(posY+abstand*j, posX+abstand*i));
+				} while (aufSpielfeld(posX+abstand*i, posY+abstand*j));
 				spielfeld[posY][posX] = aktuellerSpieler;
 			}
         }
@@ -272,7 +272,7 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
  * @param aktuellerSpieler Der aktuelle Spieler
  * @param posX Zu ueberpruefende Spalte
  * @param posY Zu ueberpruefende Zeile
- * @return
+ * @return Anzahl der moeglichen Zuege
  */
 int moeglicheZuege(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpieler)
 {
@@ -292,7 +292,16 @@ int moeglicheZuege(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuelle
     return ergebnis;
 }
 
-
+/**
+ * @brief Fuehrt den menschlichen Zug aus
+ *
+ * 	Fragt den Spieler nach seinem Zug, ueberprueft diesen
+ * 	und fuehrt ihn aus.
+ *
+ * @param spielfeld Das aktuelle Spielfeld
+ * @param aktuellerSpieler Der aktuelle Spieler
+ * @rturn true wenn ein menschlicher Zug gezogen wurde, sonst false
+ */
 bool menschlicherZug(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpieler)
 {
     if (moeglicheZuege(spielfeld, aktuellerSpieler) == 0)
@@ -338,6 +347,16 @@ bool menschlicherZug(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpi
 }
 
 
+/**
+ * @brief Fuehrt den menschlichen Zug aus
+ *
+ * 	Hauptschleife des Spiels, fuehrt nach und
+ * 	nach die Zuege wenn moeglich aus, ansonsten
+ * 	bestimmt sie den Gewinner.
+ *
+ * @param spielfeld Das aktuelle Spielfeld
+ * @param aktuellerSpieler Der aktuelle Spieler
+ */
 void spielen(const int spielerTyp[2])
 {
     int spielfeld[GROESSE_Y][GROESSE_X];
@@ -351,14 +370,18 @@ void spielen(const int spielerTyp[2])
     
     while (true)
     {
-    	if (!moeglicheZuege(spielfeld, aktuellerSpieler) && !moeglicheZuege(spielfeld, aktuellerSpieler))
+    	if (!moeglicheZuege(spielfeld, 1) && !moeglicheZuege(spielfeld, 2))
 		{
-    		std::cout << "Keine moeglichen Zuege mehr. Spiel Beendet." << std::endl;
+    		std::cout << "Keine moeglichen Zuege mehr. Spiel beendet." << std::endl;
     		break;
 		}
-    	if (menschlicherZug(spielfeld, aktuellerSpieler))
+    	if (spielerTyp[aktuellerSpieler-1] == 1 && menschlicherZug(spielfeld, aktuellerSpieler))
     	{
         	zeigeSpielfeld(spielfeld);
+    	}
+    	else if (spielerTyp[aktuellerSpieler-1] == 2 && computerZug(spielfeld, aktuellerSpieler))
+    	{
+    		zeigeSpielfeld(spielfeld);
     	}
     	else
     	{
@@ -384,6 +407,14 @@ void spielen(const int spielerTyp[2])
     }
 }
 
+/**
+ * @brief Startet Spiel oder Test
+ *
+ * 	Startet das Spiel oder den gesamten Test.
+ *
+ * @param spielfeld Das aktuelle Spielfeld
+ * @param aktuellerSpieler Der aktuelle Spieler
+ */
 int main()
 {
     if (TEST == 1)
@@ -409,7 +440,7 @@ int main()
 
     // zeigeSpielfeld(spielfeld);
 
-    int spielerTyp[2] = { MENSCH, MENSCH };  // Feld, das Informationen ueber den Typ des Spielers enthaelt. MENSCH(=1) oder COPMUTER(=2)
+    int spielerTyp[2] = { COMPUTER, COMPUTER };  // Feld, das Informationen ueber den Typ des Spielers enthaelt. MENSCH(=1) oder COMPUTER(=2)
     spielen(spielerTyp);
     
     return 0;
