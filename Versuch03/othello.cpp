@@ -210,6 +210,11 @@ bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSp
 /**
  * @brief Funktion, die einen Zug ausfuehrt
  *
+ *	Fuehrt einen Zug aus,
+ *	das heißt diese Funktion aendert nach dem
+ *	Zug die bereits gelegten Steine, soweit
+ *	der aktuelle Spieler sie gewinnt.
+ *
  * @param spielfeld Das aktuelle Spielfeld
  * @param aktuellerSpieler Der aktuelle Spieler
  * @param posX Die aktuelle Spalte
@@ -257,11 +262,34 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
 
 }
 
+/**
+ * @brief Gibt die Anzahl der moeglichen Zuege aus
+ *
+ * 	Berechnet mit Hilfe der zugGueltig() Funktion die Anzahl
+ *	der legalen Zuege und gibt diese zurück.
+ *
+ * @param spielfeld Das aktuelle Spielfeld
+ * @param aktuellerSpieler Der aktuelle Spieler
+ * @param posX Zu ueberpruefende Spalte
+ * @param posY Zu ueberpruefende Zeile
+ * @return
+ */
 int moeglicheZuege(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpieler)
 {
-    // Hier erfolgt jetzt Ihre Implementierung ...
+	int ergebnis = 0;
+    for (int j = 0; j < GROESSE_Y; ++j)
+    {
+		for (int i = 0; i < GROESSE_X; ++i)
+		{
+			bool zug = zugGueltig(spielfeld, aktuellerSpieler, i, j);
+			if (zug)
+			{
+				ergebnis++;
+			}
+		}
+	}
     
-    return 0;
+    return ergebnis;
 }
 
 

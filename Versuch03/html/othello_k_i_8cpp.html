@@ -113,6 +113,7 @@ $(function(){initNavTree('othello_k_i_8cpp.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8cf3121558de67463e88957becd116d1" id="r_a8cf3121558de67463e88957becd116d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cf3121558de67463e88957becd116d1">moeglicheZuege</a> (const int spielfeld[<a class="el" href="config_8h.html#a6e8c64412a620a46fbadb6bbf2df47fe">GROESSE_Y</a>][<a class="el" href="config_8h.html#a091c112fc29d1116c224f3d4c0fa7455">GROESSE_X</a>], const int aktuellerSpieler)</td></tr>
+<tr class="memdesc:a8cf3121558de67463e88957becd116d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die Anzahl der moeglichen Zuege aus.  <br /></td></tr>
 <tr class="separator:a8cf3121558de67463e88957becd116d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7034afa60f015a8ab6c0b836d316d4a4" id="r_a7034afa60f015a8ab6c0b836d316d4a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7034afa60f015a8ab6c0b836d316d4a4">zugAusfuehren</a> (int spielfeld[<a class="el" href="config_8h.html#a6e8c64412a620a46fbadb6bbf2df47fe">GROESSE_Y</a>][<a class="el" href="config_8h.html#a091c112fc29d1116c224f3d4c0fa7455">GROESSE_X</a>], const int aktuellerSpieler, const int posX, const int posY)</td></tr>
 <tr class="memdesc:a7034afa60f015a8ab6c0b836d316d4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktion, die einen Zug ausfuehrt.  <br /></td></tr>
@@ -184,6 +185,20 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Gibt die Anzahl der moeglichen Zuege aus. </p>
+<pre class="fragment">Berechnet mit Hilfe der zugGueltig() Funktion die Anzahl
+</pre><p> der legalen Zuege und gibt diese zurück.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spielfeld</td><td>Das aktuelle Spielfeld </td></tr>
+    <tr><td class="paramname">aktuellerSpieler</td><td>Der aktuelle Spieler </td></tr>
+    <tr><td class="paramname">posX</td><td>Zu ueberpruefende Spalte </td></tr>
+    <tr><td class="paramname">posY</td><td>Zu ueberpruefende Zeile </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
 </div>
 </div>
 <a id="a7034afa60f015a8ab6c0b836d316d4a4" name="a7034afa60f015a8ab6c0b836d316d4a4"></a>
@@ -224,6 +239,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Funktion, die einen Zug ausfuehrt. </p>
+<p>Fuehrt einen Zug aus, das heißt diese Funktion aendert nach dem Zug die bereits gelegten Steine, soweit der aktuelle Spieler sie gewinnt.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">spielfeld</td><td>Das aktuelle Spielfeld </td></tr>
