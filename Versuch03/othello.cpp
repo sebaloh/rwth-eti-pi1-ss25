@@ -348,13 +348,39 @@ void spielen(const int spielerTyp[2])
     int aktuellerSpieler = 1;
     zeigeSpielfeld(spielfeld);
 
-    // solange noch Zuege bei einem der beiden Spieler moeglich sind
-    //
-    // Hier erfolgt jetzt Ihre Implementierung ...
     
+    while (true)
+    {
+    	if (!moeglicheZuege(spielfeld, aktuellerSpieler) && !moeglicheZuege(spielfeld, aktuellerSpieler))
+		{
+    		std::cout << "Keine moeglichen Zuege mehr. Spiel Beendet." << std::endl;
+    		break;
+		}
+    	if (menschlicherZug(spielfeld, aktuellerSpieler))
+    	{
+        	zeigeSpielfeld(spielfeld);
+    	}
+    	else
+    	{
+    		std::cout << "Spieler " << aktuellerSpieler << " hat keinen gütligen Zug." << std::endl;
+    	}
+    	aktuellerSpieler = 3 - aktuellerSpieler;
+    }
+
     switch (gewinner(spielfeld))
     {
-        // Hier erfolgt jetzt Ihre Implementierung ...
+    	case 0:
+    		std::cout << "Unendschieden" << std::endl;
+    		break;
+    	case 1:
+    		std::cout << "Spieler 1 (X) hat gewonnen." << std::endl;
+    		break;
+    	case 2:
+    		std::cout << "Spieler 2 (0) hat gewonnen." << std::endl;
+    		break;
+    	default:
+    		std::cout << "ERROR" << std::endl;
+    		break;
     }
 }
 
@@ -377,16 +403,14 @@ int main()
     
     // Die folgenden drei Zeilen werden auskommentiert oder geloescht, nachdem Sie die Funktion spielen()
     // implementiert haben (waeren sonst doppelt)
-    int spielfeld[GROESSE_Y][GROESSE_X];
+    // int spielfeld[GROESSE_Y][GROESSE_X];
 
-    initialisiereSpielfeld(spielfeld);
+    // initialisiereSpielfeld(spielfeld);
 
-    zeigeSpielfeld(spielfeld);
+    // zeigeSpielfeld(spielfeld);
 
-    // int spielerTyp[2] = { COMPUTER, COMPUTER };  // Feld, das Informationen ueber den Typ des Spielers enthaelt. MENSCH(=1) oder COPMUTER(=2)
-    // spielen(spielerTyp);
-    //
-    // Hier erfolgt jetzt Ihre Implementierung ...
+    int spielerTyp[2] = { MENSCH, MENSCH };  // Feld, das Informationen ueber den Typ des Spielers enthaelt. MENSCH(=1) oder COPMUTER(=2)
+    spielen(spielerTyp);
     
     return 0;
 }
