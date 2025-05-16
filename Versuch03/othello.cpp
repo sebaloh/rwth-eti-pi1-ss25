@@ -219,15 +219,39 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
 {
     int gegner = 3 - aktuellerSpieler;
 
-    //Alle Richtungen bearbeiten
     for (int j = -1; j <= 1; j++)
     {
         for (int i = -1; i <= 1; i++)
         {
-            // aehnlich wie die Funktion zugGueltig(), aber stellen Sie sicher, das alle gegnerischen Steine in
-            // allen Richtungen in Ihre eigenen Steine umgewandelt werden
-            //
-            // Hier erfolgt jetzt Ihre Implementierung ...
+        	if (spielfeld[posY+j][posX+i] == gegner)
+			{
+				int abstand = 2;
+				do
+				{
+					if (spielfeld[posY+abstand*j][posX+abstand*i] == aktuellerSpieler)
+					{
+						do
+						{
+							abstand--;
+							if (spielfeld[posY+abstand*j][posX+abstand*i] == gegner)
+							{
+								spielfeld[posY+abstand*j][posX+abstand*i] = aktuellerSpieler;
+							}
+							else
+							{
+								break;
+							}
+						} while (aufSpielfeld(posY+abstand*j, posX+abstand*i));
+						break;
+					}
+					if (spielfeld[posY+abstand*j][posX+abstand*i] == 0)
+					{
+						break;
+					}
+					abstand++;
+				} while (aufSpielfeld(posY+abstand*j, posX+abstand*i));
+				spielfeld[posY][posX] = aktuellerSpieler;
+			}
         }
     }
 

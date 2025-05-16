@@ -121,7 +121,14 @@ bool zugGueltigTest(const int eingabeFeld[GROESSE_Y][GROESSE_X], const int spiel
 	}
 }
 
-
+/**
+ * @brief Funktion zum Testen der zugAusfuehren() Funktion
+ *
+ * @param spielfeld Das aktuelle Spielfeld
+ * @param aktuellerSpieler Der aktuelle Spieler
+ * @param posX Die aktuelle Spalte
+ * @param posY Die aktuelle Zeile
+ */
 bool zugAusfuehrenTest(int eingabeFeld[GROESSE_Y][GROESSE_X], const int ergebnisFeld[GROESSE_Y][GROESSE_X],
                        const int spieler, const int posX, const int posY, const int testNummer)
 {
@@ -130,7 +137,29 @@ bool zugAusfuehrenTest(int eingabeFeld[GROESSE_Y][GROESSE_X], const int ergebnis
     //
     // Hier erfolgt jetzt Ihre Implementierung ...
 
-    return 0;
+	std::cout << "Fuehre Test " << testNummer + 1 << " fuer 'zugAusfuehren()' aus ..." << std::endl;
+	std::cout << "----------------------------------" << std::endl << std::endl;
+	zugAusfuehren(eingabeFeld, spieler, posX, posY);
+	for (int j = 0; j < GROESSE_Y; j++)
+	{
+		for (int i = 0; i < GROESSE_X; i++)
+		{
+			if (eingabeFeld[j][i] != ergebnisFeld[j][i])
+			{
+				std::cout << "Test " << testNummer + 1 << " fehlgeschlagen" << std::endl << std::endl;
+				if (AUSFUEHRLICH == 1)
+				{
+					std::cout << "eingabeFeld" << std::endl;
+					zeigeSpielfeld(eingabeFeld);
+					std::cout << "ergebnisFeld" << std::endl;
+					zeigeSpielfeld(ergebnisFeld);
+				}
+				return false;
+			}
+		}
+	}
+	std::cout << "Test " << testNummer + 1 << " bestanden!" << std::endl << std::endl;
+	return true;
 }
 
 bool moeglicheZuegeTest(const int eingabeFeld[GROESSE_Y][GROESSE_X], const int spieler,
@@ -535,7 +564,11 @@ bool ganzenTestAusfuehren()
 
         for (int i = 0; i < 10; i++)
         {
-            // Hier erfolgt jetzt Ihre Implementierung (entsprechende Testfunktion aufrufen) ...
+            bool tmp_ergebnis = zugAusfuehrenTest(eingabeFeld[i], ergebnisFeld[i], spieler[i], position[i][0], position[i][1], i);
+            if (gesamtErgebnis == true && tmp_ergebnis == false)
+            {
+				gesamtErgebnis = false;
+			}
         }
     }
 
