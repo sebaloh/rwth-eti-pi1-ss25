@@ -8,6 +8,12 @@
 
 #include "Vektor.h"
 
+/**
+ * @brief Berechnet die Sichtweite
+ *
+ * 	Such mit Hilfe einer iterative Lösung
+ * 	nach der Sichtweite.
+ */
 int main()
 {
     Vektor erdRadius(0, 6371000, 0);      // bitte sinnvoll initialisieren

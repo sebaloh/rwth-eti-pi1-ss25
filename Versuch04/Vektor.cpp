@@ -31,6 +31,11 @@ void Vektor::ausgabe() const
 
 /**
  * @brief Function subtracting two vectors
+ *
+ * @param Vektor& Der Vektor, an dem diese Funktion aufgerufen wird.
+ * @param input Zweiter Vektor der abgezogen wird.
+ *
+ * @return Vektor Der neue subtrahierte Vektor
  */
 Vektor Vektor::sub(const Vektor& input) const
 {
@@ -40,6 +45,8 @@ Vektor Vektor::sub(const Vektor& input) const
 
 /**
  * @brief Function returning the length of the vector
+ *
+ * @return laenge Gibt die Laenge des Vektoren zurueck.
  */
 double Vektor::laenge() const
 {
@@ -48,6 +55,11 @@ double Vektor::laenge() const
 
 /**
  * @brief Function returning the scalar product of two vectors
+ *
+ * @param Vektor& Der Vektor, an dem diese Funktion aufgerufen wird.
+ * @param input Zweiter Vektor der abgezogen wird.
+ *
+ * @ return skalarProd Gibt das Skalarprodukt des Vektors zurueck.
  */
 double Vektor::skalarProd(const Vektor& input) const
 {
@@ -56,6 +68,11 @@ double Vektor::skalarProd(const Vektor& input) const
 
 /**
  * @brief Function returning the angle between two vectors
+ *
+ * @param Vektor& Der Vektor, an dem diese Funktion aufgerufen wird.
+ * @param input Zweiter Vektor der abgezogen wird.
+ *
+ * @return winkel Gibt den WInkel dises Vektors zurueck.
  */
 double Vektor::winkel(const Vektor& input) const
 {
@@ -64,6 +81,9 @@ double Vektor::winkel(const Vektor& input) const
 
 /**
  * @brief Function that rotates the vector
+ *
+ * @param Vektor& Der Vektor, an dem diese Funktion aufgerufen wird.
+ * @param input Zweiter Vektor der abgezogen wird.
  */
 void Vektor::rotiereUmZ(const double rad)
 {
