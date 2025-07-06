@@ -5,6 +5,7 @@
 #include <QGraphicsView>
 #include <QRandomGenerator>
 #include <QMessageBox>
+#include "city.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,6 +29,8 @@ private slots:
     void on_actionClear_Scene_triggered();
 
     void on_actionAbout_triggered();
+
+    void on_pushButton_testDrawCity_clicked();
 
 private:
     Ui::MainWindow *ui;

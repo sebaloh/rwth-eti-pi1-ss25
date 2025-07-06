@@ -40,3 +40,12 @@ void MainWindow::on_actionAbout_triggered()
     msgBox.about(this, "Streetplaner", "RWTH ETI PI1 SS25");
 }
 
+
+void MainWindow::on_pushButton_testDrawCity_clicked()
+{
+    City c1("c1", 20, 50);
+    c1.draw(scene);
+    City c2("c2", 30, 10);
+    c2.draw(scene);
+}
+
