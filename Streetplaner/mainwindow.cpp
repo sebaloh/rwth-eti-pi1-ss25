@@ -41,7 +41,7 @@ void MainWindow::on_actionAbout_triggered()
 }
 
 
-void MainWindow::on_pushButton_testDrawCity_clicked()
+void MainWindow::on_pushButton_testCity_clicked()
 {
     City c1("c1", 20, 50);
     c1.draw(scene);
@@ -52,8 +52,23 @@ void MainWindow::on_pushButton_testDrawCity_clicked()
 
 void MainWindow::on_pushButton_testMap_clicked()
 {
-    City c1("city c1", 20,50);
+    City c1("c1", 20, 50);
     map.addCity(&c1);
+    City c2("c2", 30, 10);
+    map.addCity(&c2);
+    Street s1(&c1, &c2);
+    map.addStreet(&s1);
     map.draw(scene);
+}
+
+
+void MainWindow::on_pushButton_testStreet_clicked()
+{
+    City c1("c1", 20, 50);
+    c1.draw(scene);
+    City c2("c2", 30, 10);
+    c2.draw(scene);
+    Street s1(&c1, &c2);
+    s1.draw(scene);
 }
 

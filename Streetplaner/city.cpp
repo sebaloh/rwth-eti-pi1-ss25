@@ -23,3 +23,13 @@ QString City::getName()
 {
     return name;
 }
+
+int City::getX()
+{
+    return x;
+}
+
+int City::getY()
+{
+    return y;
+}

@@ -13,13 +13,15 @@ SOURCES += \
     city.cpp \
     main.cpp \
     mainwindow.cpp \
-    map.cpp
+    map.cpp \
+    street.cpp
 
 HEADERS += \
     abstractmap.h \
     city.h \
     mainwindow.h \
-    map.h
+    map.h \
+    street.h
 
 FORMS += \
     mainwindow.ui

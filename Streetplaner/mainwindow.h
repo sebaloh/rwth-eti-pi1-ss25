@@ -5,7 +5,6 @@
 #include <QGraphicsView>
 #include <QRandomGenerator>
 #include <QMessageBox>
-#include "city.h"
 #include "map.h"
 
 QT_BEGIN_NAMESPACE
@@ -31,9 +30,11 @@ private slots:
 
     void on_actionAbout_triggered();
 
-    void on_pushButton_testDrawCity_clicked();
+    void on_pushButton_testCity_clicked();
 
     void on_pushButton_testMap_clicked();
+
+    void on_pushButton_testStreet_clicked();
 
 private:
     Ui::MainWindow *ui;
