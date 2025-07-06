@@ -49,3 +49,11 @@ void MainWindow::on_pushButton_testDrawCity_clicked()
     c2.draw(scene);
 }
 
+
+void MainWindow::on_pushButton_testMap_clicked()
+{
+    City c1("city c1", 20,50);
+    map.addCity(&c1);
+    map.draw(scene);
+}
+

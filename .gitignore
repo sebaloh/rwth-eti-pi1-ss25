@@ -3,4 +3,9 @@ html/
 build/
 Release/
 Debug/
+release/
+debug/
 .settings/
+Makefile*
+.qmake.stash
+.qtc_clangd/

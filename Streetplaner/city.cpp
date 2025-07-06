@@ -18,3 +18,8 @@ void City::draw(QGraphicsScene& scene)
 
     qDebug() << QString("Add %1 at %2, %3.").arg(name).arg(x).arg(y);
 }
+
+QString City::getName()
+{
+    return name;
+}
