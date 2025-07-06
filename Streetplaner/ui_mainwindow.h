@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
@@ -38,12 +39,14 @@ public:
     QGridLayout *gridLayout;
     QLineEdit *lineEdit_eingabe;
     QSpacerItem *spacer;
+    QPushButton *pushButton_testStreet;
     QPushButton *pushButton_testMap;
     QGraphicsView *graphicsView;
     QLabel *label_eingabe;
     QPushButton *pushButton_testCity;
     QPushButton *pushButton_eingabe;
-    QPushButton *pushButton_testStreet;
+    QCheckBox *checkBox_testVerbergen;
+    QPushButton *pushButton_addCity;
     QStatusBar *statusbar;
     QMenuBar *menuBar;
     QMenu *menuFile;
@@ -79,17 +82,22 @@ public:
 
         spacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        gridLayout->addItem(spacer, 6, 0, 1, 1);
+        gridLayout->addItem(spacer, 8, 0, 1, 1);
+
+        pushButton_testStreet = new QPushButton(centralwidget);
+        pushButton_testStreet->setObjectName("pushButton_testStreet");
+
+        gridLayout->addWidget(pushButton_testStreet, 7, 0, 1, 1);
 
         pushButton_testMap = new QPushButton(centralwidget);
         pushButton_testMap->setObjectName("pushButton_testMap");
 
-        gridLayout->addWidget(pushButton_testMap, 4, 0, 1, 1);
+        gridLayout->addWidget(pushButton_testMap, 6, 0, 1, 1);
 
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName("graphicsView");
 
-        gridLayout->addWidget(graphicsView, 0, 1, 7, 1);
+        gridLayout->addWidget(graphicsView, 0, 1, 9, 1);
 
         label_eingabe = new QLabel(centralwidget);
         label_eingabe->setObjectName("label_eingabe");
@@ -99,17 +107,22 @@ public:
         pushButton_testCity = new QPushButton(centralwidget);
         pushButton_testCity->setObjectName("pushButton_testCity");
 
-        gridLayout->addWidget(pushButton_testCity, 3, 0, 1, 1);
+        gridLayout->addWidget(pushButton_testCity, 5, 0, 1, 1);
 
         pushButton_eingabe = new QPushButton(centralwidget);
         pushButton_eingabe->setObjectName("pushButton_eingabe");
 
         gridLayout->addWidget(pushButton_eingabe, 2, 0, 1, 1);
 
-        pushButton_testStreet = new QPushButton(centralwidget);
-        pushButton_testStreet->setObjectName("pushButton_testStreet");
+        checkBox_testVerbergen = new QCheckBox(centralwidget);
+        checkBox_testVerbergen->setObjectName("checkBox_testVerbergen");
 
-        gridLayout->addWidget(pushButton_testStreet, 5, 0, 1, 1);
+        gridLayout->addWidget(checkBox_testVerbergen, 4, 0, 1, 1);
+
+        pushButton_addCity = new QPushButton(centralwidget);
+        pushButton_addCity->setObjectName("pushButton_addCity");
+
+        gridLayout->addWidget(pushButton_addCity, 3, 0, 1, 1);
 
         gridLayout->setColumnStretch(1, 1);
         MainWindow->setCentralWidget(centralwidget);
@@ -157,6 +170,7 @@ public:
 #endif // QT_CONFIG(shortcut)
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
         lineEdit_eingabe->setPlaceholderText(QCoreApplication::translate("MainWindow", "Lieblingsstadt", nullptr));
+        pushButton_testStreet->setText(QCoreApplication::translate("MainWindow", "Test Street", nullptr));
         pushButton_testMap->setText(QCoreApplication::translate("MainWindow", "Test Map", nullptr));
         label_eingabe->setText(QCoreApplication::translate("MainWindow", "Ihre Eingabe", nullptr));
         pushButton_testCity->setText(QCoreApplication::translate("MainWindow", "Test City", nullptr));
@@ -164,7 +178,8 @@ public:
         pushButton_eingabe->setToolTip(QCoreApplication::translate("MainWindow", "Sucht die eingegebene Stadt", nullptr));
 #endif // QT_CONFIG(tooltip)
         pushButton_eingabe->setText(QCoreApplication::translate("MainWindow", "Suchen", nullptr));
-        pushButton_testStreet->setText(QCoreApplication::translate("MainWindow", "Test Street", nullptr));
+        checkBox_testVerbergen->setText(QCoreApplication::translate("MainWindow", "Test verbergen", nullptr));
+        pushButton_addCity->setText(QCoreApplication::translate("MainWindow", "Add City", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuScene->setTitle(QCoreApplication::translate("MainWindow", "Scene", nullptr));
         menuInfo->setTitle(QCoreApplication::translate("MainWindow", "Info", nullptr));

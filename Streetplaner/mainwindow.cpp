@@ -72,3 +72,32 @@ void MainWindow::on_pushButton_testStreet_clicked()
     s1.draw(scene);
 }
 
+
+void MainWindow::on_checkBox_testVerbergen_clicked()
+{
+    if(ui->checkBox_testVerbergen->isChecked())
+    {
+        ui->pushButton_testCity->hide();
+        ui->pushButton_testMap->hide();
+        ui->pushButton_testStreet->hide();
+    }
+    else
+    {
+        ui->pushButton_testCity->show();
+        ui->pushButton_testMap->show();
+        ui->pushButton_testStreet->show();
+    }
+}
+
+
+void MainWindow::on_pushButton_addCity_clicked()
+{
+    Dialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        City newCity = dialog.getCity();
+        map.addCity(&newCity);
+        map.draw(scene);
+    }
+}
+

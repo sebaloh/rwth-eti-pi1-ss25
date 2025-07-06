@@ -6,6 +6,7 @@
 #include <QRandomGenerator>
 #include <QMessageBox>
 #include "map.h"
+#include "dialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -35,6 +36,10 @@ private slots:
     void on_pushButton_testMap_clicked();
 
     void on_pushButton_testStreet_clicked();
+
+    void on_checkBox_testVerbergen_clicked();
+
+    void on_pushButton_addCity_clicked();
 
 private:
     Ui::MainWindow *ui;
