@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     ui->graphicsView->setScene(&scene);
+
+    MapIoNrw mapionrw;
+    mapionrw.fillMap(map);
 }
 
 MainWindow::~MainWindow()
@@ -99,5 +102,11 @@ void MainWindow::on_pushButton_addCity_clicked()
         map.addCity(&newCity);
         map.draw(scene);
     }
+}
+
+
+void MainWindow::on_pushButton_fillMap_clicked()
+{
+    map.draw(scene);
 }
 
