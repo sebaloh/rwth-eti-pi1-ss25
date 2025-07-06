@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QGraphicsView>
 #include <QRandomGenerator>
-#include <QGraphicsTextItem>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,6 +22,12 @@ public:
 
 private slots:
     void on_pushButton_eingabe_clicked();
+
+    void on_actionExit_triggered();
+
+    void on_actionClear_Scene_triggered();
+
+    void on_actionAbout_triggered();
 
 private:
     Ui::MainWindow *ui;

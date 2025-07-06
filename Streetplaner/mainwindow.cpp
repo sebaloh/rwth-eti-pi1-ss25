@@ -21,3 +21,22 @@ void MainWindow::on_pushButton_eingabe_clicked()
     int randomY = QRandomGenerator::global()->bounded(1000);
     scene.addRect(randomX, randomY, 10, 10, QPen(Qt::red), QBrush(Qt::red, Qt::SolidPattern));
 }
+
+void MainWindow::on_actionExit_triggered()
+{
+    close();
+}
+
+
+void MainWindow::on_actionClear_Scene_triggered()
+{
+    scene.clear();
+}
+
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox msgBox;
+    msgBox.about(this, "Streetplaner", "RWTH ETI PI1 SS25");
+}
+
