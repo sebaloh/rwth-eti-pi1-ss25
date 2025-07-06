@@ -45,6 +45,8 @@ private slots:
 
     void on_pushButton_fillMap_clicked();
 
+    void on_pushButton_testAbsMap_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene scene;

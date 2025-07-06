@@ -45,6 +45,54 @@ bool Map::addStreet(Street* street)
     }
 }
 
+City* Map::findCity(const QString cityName) const
+{
+    for(City* city : cities)
+    {
+        if(city->getName() == cityName)
+        {
+            return city;
+        }
+    }
+
+    return nullptr;
+}
+
+QVector<Street*> Map::getStreetList(const City* city) const
+{
+    QVector<Street*> out;
+
+    for(Street* street : streets)
+    {
+        if(street->getCity1() == city || street->getCity2() == city)
+        {
+            out.push_back(street);
+        }
+    }
+
+    return out;
+}
+
+City* Map::getOppositeCity(const Street* street, const City* city) const
+{
+    if(street->getCity1() == city || street->getCity2() == city)
+    {
+        if(street->getCity1() == city)
+        {
+            return street->getCity2();
+        }
+        return street->getCity1();
+    }
+    return 0;
+}
+
+double Map::getLength(const Street* street) const
+{
+    double x = abs(street->getCity1()->getX() - street->getCity2()->getX());
+    double y = abs(street->getCity1()->getY() - street->getCity2()->getY());
+    return std::sqrt(x*x+y*y);
+}
+
 void Map::draw(QGraphicsScene& scene)
 {
     for(City* city : cities)

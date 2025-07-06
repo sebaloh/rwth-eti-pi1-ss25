@@ -43,8 +43,15 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1" rowspan="10">
+    <item row="0" column="1" rowspan="11">
      <widget class="QGraphicsView" name="graphicsView"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="pushButton_fillMap">
+      <property name="text">
+       <string>Fill Map</string>
+      </property>
+     </widget>
     </item>
     <item row="1" column="0">
      <widget class="QLineEdit" name="lineEdit_eingabe">
@@ -73,7 +80,7 @@
       </property>
      </widget>
     </item>
-    <item row="9" column="0">
+    <item row="10" column="0">
      <spacer name="spacer">
       <property name="orientation">
        <enum>Qt::Orientation::Vertical</enum>
@@ -93,10 +100,10 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="pushButton_fillMap">
+    <item row="9" column="0">
+     <widget class="QPushButton" name="pushButton_testAbsMap">
       <property name="text">
-       <string>Fill Map</string>
+       <string>Test Abstract Map</string>
       </property>
      </widget>
     </item>

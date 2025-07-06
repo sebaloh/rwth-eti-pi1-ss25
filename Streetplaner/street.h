@@ -9,8 +9,8 @@ class Street
 public:
     Street(City* city1, City* city2);
     void draw(QGraphicsScene& scene);
-    City* getCity1();
-    City* getCity2();
+    City* getCity1() const;
+    City* getCity2() const;
 private:
     City* city1;
     City* city2;
