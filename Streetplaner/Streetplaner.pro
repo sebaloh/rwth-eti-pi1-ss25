@@ -12,6 +12,7 @@ SOURCES += \
     abstractmap.cpp \
     city.cpp \
     dialog.cpp \
+    dijkstra.cpp \
     main.cpp \
     mainwindow.cpp \
     map.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     abstractmap.h \
     city.h \
     dialog.h \
+    dijkstra.h \
     mainwindow.h \
     map.h \
     mapio.h \

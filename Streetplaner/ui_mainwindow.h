@@ -39,16 +39,18 @@ public:
     QGridLayout *gridLayout;
     QPushButton *pushButton_testMap;
     QPushButton *pushButton_addCity;
+    QPushButton *pushButton_testDijkstra;
+    QPushButton *pushButton_testAbsMap;
     QCheckBox *checkBox_testVerbergen;
     QPushButton *pushButton_testStreet;
     QGraphicsView *graphicsView;
     QPushButton *pushButton_fillMap;
-    QLineEdit *lineEdit_eingabe;
+    QLineEdit *lineEdit_cityStart;
     QPushButton *pushButton_eingabe;
     QLabel *label_eingabe;
     QSpacerItem *spacer;
     QPushButton *pushButton_testCity;
-    QPushButton *pushButton_testAbsMap;
+    QLineEdit *lineEdit_cityZiel;
     QStatusBar *statusbar;
     QMenuBar *menuBar;
     QMenu *menuFile;
@@ -79,43 +81,53 @@ public:
         pushButton_testMap = new QPushButton(centralwidget);
         pushButton_testMap->setObjectName("pushButton_testMap");
 
-        gridLayout->addWidget(pushButton_testMap, 7, 0, 1, 1);
+        gridLayout->addWidget(pushButton_testMap, 8, 0, 1, 1);
 
         pushButton_addCity = new QPushButton(centralwidget);
         pushButton_addCity->setObjectName("pushButton_addCity");
 
-        gridLayout->addWidget(pushButton_addCity, 3, 0, 1, 1);
+        gridLayout->addWidget(pushButton_addCity, 4, 0, 1, 1);
+
+        pushButton_testDijkstra = new QPushButton(centralwidget);
+        pushButton_testDijkstra->setObjectName("pushButton_testDijkstra");
+
+        gridLayout->addWidget(pushButton_testDijkstra, 11, 0, 1, 1);
+
+        pushButton_testAbsMap = new QPushButton(centralwidget);
+        pushButton_testAbsMap->setObjectName("pushButton_testAbsMap");
+
+        gridLayout->addWidget(pushButton_testAbsMap, 10, 0, 1, 1);
 
         checkBox_testVerbergen = new QCheckBox(centralwidget);
         checkBox_testVerbergen->setObjectName("checkBox_testVerbergen");
 
-        gridLayout->addWidget(checkBox_testVerbergen, 5, 0, 1, 1);
+        gridLayout->addWidget(checkBox_testVerbergen, 6, 0, 1, 1);
 
         pushButton_testStreet = new QPushButton(centralwidget);
         pushButton_testStreet->setObjectName("pushButton_testStreet");
 
-        gridLayout->addWidget(pushButton_testStreet, 8, 0, 1, 1);
+        gridLayout->addWidget(pushButton_testStreet, 9, 0, 1, 1);
 
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName("graphicsView");
 
-        gridLayout->addWidget(graphicsView, 0, 1, 11, 1);
+        gridLayout->addWidget(graphicsView, 0, 1, 13, 1);
 
         pushButton_fillMap = new QPushButton(centralwidget);
         pushButton_fillMap->setObjectName("pushButton_fillMap");
 
-        gridLayout->addWidget(pushButton_fillMap, 4, 0, 1, 1);
+        gridLayout->addWidget(pushButton_fillMap, 5, 0, 1, 1);
 
-        lineEdit_eingabe = new QLineEdit(centralwidget);
-        lineEdit_eingabe->setObjectName("lineEdit_eingabe");
-        lineEdit_eingabe->setClearButtonEnabled(true);
+        lineEdit_cityStart = new QLineEdit(centralwidget);
+        lineEdit_cityStart->setObjectName("lineEdit_cityStart");
+        lineEdit_cityStart->setClearButtonEnabled(true);
 
-        gridLayout->addWidget(lineEdit_eingabe, 1, 0, 1, 1);
+        gridLayout->addWidget(lineEdit_cityStart, 1, 0, 1, 1);
 
         pushButton_eingabe = new QPushButton(centralwidget);
         pushButton_eingabe->setObjectName("pushButton_eingabe");
 
-        gridLayout->addWidget(pushButton_eingabe, 2, 0, 1, 1);
+        gridLayout->addWidget(pushButton_eingabe, 3, 0, 1, 1);
 
         label_eingabe = new QLabel(centralwidget);
         label_eingabe->setObjectName("label_eingabe");
@@ -124,17 +136,17 @@ public:
 
         spacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        gridLayout->addItem(spacer, 10, 0, 1, 1);
+        gridLayout->addItem(spacer, 12, 0, 1, 1);
 
         pushButton_testCity = new QPushButton(centralwidget);
         pushButton_testCity->setObjectName("pushButton_testCity");
 
-        gridLayout->addWidget(pushButton_testCity, 6, 0, 1, 1);
+        gridLayout->addWidget(pushButton_testCity, 7, 0, 1, 1);
 
-        pushButton_testAbsMap = new QPushButton(centralwidget);
-        pushButton_testAbsMap->setObjectName("pushButton_testAbsMap");
+        lineEdit_cityZiel = new QLineEdit(centralwidget);
+        lineEdit_cityZiel->setObjectName("lineEdit_cityZiel");
 
-        gridLayout->addWidget(pushButton_testAbsMap, 9, 0, 1, 1);
+        gridLayout->addWidget(lineEdit_cityZiel, 2, 0, 1, 1);
 
         gridLayout->setColumnStretch(1, 1);
         MainWindow->setCentralWidget(centralwidget);
@@ -183,17 +195,19 @@ public:
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
         pushButton_testMap->setText(QCoreApplication::translate("MainWindow", "Test Map", nullptr));
         pushButton_addCity->setText(QCoreApplication::translate("MainWindow", "Add City", nullptr));
+        pushButton_testDijkstra->setText(QCoreApplication::translate("MainWindow", "Test Dijkstra", nullptr));
+        pushButton_testAbsMap->setText(QCoreApplication::translate("MainWindow", "Test Abstract Map", nullptr));
         checkBox_testVerbergen->setText(QCoreApplication::translate("MainWindow", "Test verbergen", nullptr));
         pushButton_testStreet->setText(QCoreApplication::translate("MainWindow", "Test Street", nullptr));
         pushButton_fillMap->setText(QCoreApplication::translate("MainWindow", "Fill Map", nullptr));
-        lineEdit_eingabe->setPlaceholderText(QCoreApplication::translate("MainWindow", "Lieblingsstadt", nullptr));
+        lineEdit_cityStart->setPlaceholderText(QCoreApplication::translate("MainWindow", "Start", nullptr));
 #if QT_CONFIG(tooltip)
         pushButton_eingabe->setToolTip(QCoreApplication::translate("MainWindow", "Sucht die eingegebene Stadt", nullptr));
 #endif // QT_CONFIG(tooltip)
         pushButton_eingabe->setText(QCoreApplication::translate("MainWindow", "Suchen", nullptr));
         label_eingabe->setText(QCoreApplication::translate("MainWindow", "Ihre Eingabe", nullptr));
         pushButton_testCity->setText(QCoreApplication::translate("MainWindow", "Test City", nullptr));
-        pushButton_testAbsMap->setText(QCoreApplication::translate("MainWindow", "Test Abstract Map", nullptr));
+        lineEdit_cityZiel->setPlaceholderText(QCoreApplication::translate("MainWindow", "Ziel", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuScene->setTitle(QCoreApplication::translate("MainWindow", "Scene", nullptr));
         menuInfo->setTitle(QCoreApplication::translate("MainWindow", "Info", nullptr));

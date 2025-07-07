@@ -9,6 +9,7 @@
 #include "dialog.h"
 #include "mapio.h"
 #include "mapionrw.h"
+#include "dijkstra.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -46,6 +47,8 @@ private slots:
     void on_pushButton_fillMap_clicked();
 
     void on_pushButton_testAbsMap_clicked();
+
+    void on_pushButton_testDijkstra_clicked();
 
 private:
     Ui::MainWindow *ui;

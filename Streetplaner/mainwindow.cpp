@@ -20,9 +20,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_eingabe_clicked()
 {
-    int randomX = QRandomGenerator::global()->bounded(1000);
-    int randomY = QRandomGenerator::global()->bounded(1000);
-    scene.addRect(randomX, randomY, 10, 10, QPen(Qt::red), QBrush(Qt::red, Qt::SolidPattern));
+    QString cityStart = QString(ui->lineEdit_cityStart->text());
+    QString cityZiel = QString(ui->lineEdit_cityZiel->text());
+
+    QVector<Street*> streets = Dijkstra::search(map, cityStart, cityZiel);
+
+    for(Street* street : streets)
+    {
+        street->drawRed(scene);
+    }
 }
 
 void MainWindow::on_actionExit_triggered()
@@ -195,5 +201,18 @@ void MainWindow::on_pushButton_testAbsMap_clicked()
     }
 
     qDebug() << "MapTest: End Test of the Map.";
+}
+
+
+void MainWindow::on_pushButton_testDijkstra_clicked()
+{
+    QVector<Street*> streets = Dijkstra::search(map, QString("Aachen"), QString("Düsseldorf"));
+
+    qDebug() << QString("Von %1 zu %2 und %3 zu %4").arg(streets[0]->getCity1()->getName()).arg(streets[0]->getCity2()->getName()).arg(streets[1]->getCity1()->getName()).arg(streets[1]->getCity2()->getName());
+
+    for(Street* street : streets)
+    {
+        street->drawRed(scene);
+    }
 }
 

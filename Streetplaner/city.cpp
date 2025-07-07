@@ -9,7 +9,7 @@ City::City(QString name, int x, int y)
 
 void City::draw(QGraphicsScene& scene)
 {
-    scene.addEllipse(x, y, 5, 5, QPen(Qt::red), QBrush(Qt::red, Qt::SolidPattern));
+    scene.addEllipse(x, y, 5, 5, QPen(Qt::green), QBrush(Qt::green, Qt::SolidPattern));
 
     QGraphicsTextItem* text = new QGraphicsTextItem;
     text->setPos(x, y);

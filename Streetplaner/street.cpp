@@ -8,7 +8,16 @@ Street::Street(City* city1, City* city2)
 
 void Street::draw(QGraphicsScene& scene)
 {
-    scene.addLine(city1->getX(), city1->getY(), city2->getX(), city2->getY(), QPen(Qt::red));
+    scene.addLine(city1->getX(), city1->getY(), city2->getX(), city2->getY(), QPen(Qt::green));
+}
+
+void Street::drawRed(QGraphicsScene& scene)
+{
+    QPen pen;
+    pen.setColor(Qt::red);
+    pen.setWidth(3);
+
+    scene.addLine(city1->getX(), city1->getY(), city2->getX(), city2->getY(), pen);
 }
 
 City* Street::getCity1() const
