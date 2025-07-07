@@ -71,6 +71,11 @@ void Student::ausgabe(std::ostream& out) const
 		<< geburtstag << ", wohnhaft in " << adresse;
 }
 
+/**
+ * @brief Vergleicht Studenten anhand ihrer Matrikelnummer
+ *
+ * @return true falls gleich, sonst false
+ */
 bool Student::operator==(const Student& student)
 {
 	if (student.matNr == this->matNr) {
@@ -79,6 +84,11 @@ bool Student::operator==(const Student& student)
 	return false;
 }
 
+/**
+ * @brief Vergleicht Studenten anhand ihrer Matrikelnummer
+ *
+ * @return true falls größer, sonst false
+ */
 bool Student::operator<(const Student& student)
 {
 	if (student.matNr < this->matNr) {
@@ -87,6 +97,11 @@ bool Student::operator<(const Student& student)
 	return false;
 }
 
+/**
+ * @brief Vergleicht Studenten anhand ihrer Matrikelnummer
+ *
+ * @return true falls kleiner, sonst false
+ */
 bool Student::operator>(const Student& student)
 {
 	if (student.matNr > this->matNr) {
