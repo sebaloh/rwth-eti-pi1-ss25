@@ -21,6 +21,7 @@ public:
     bool operator == (const Student& student);
     bool operator < (const Student& student);
     bool operator > (const Student& student);
+    std::ostream& operator << (std::ostreem& out, const Student& student);
 private:
     unsigned int matNr;
     std::string name;

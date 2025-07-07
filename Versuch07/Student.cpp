@@ -101,3 +101,12 @@ bool Student::operator>(const Student& student)
 	}
 	return false;
 }
+
+std::ostream&& operator << (std::ostream& out, const Student& student)
+{
+	out << "Matrikelnummer: " << student.getMatNr() << std::endl;
+	out << "Name: " << student.getName() << std::endl;
+	out << "Geburtstag: " << student.getGeburtstag() << std::endl;
+	out << "Adresse: " << student.getAdresse();
+	return out;
+}
