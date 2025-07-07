@@ -71,13 +71,6 @@ void Student::ausgabe(std::ostream& out) const
 		<< geburtstag << ", wohnhaft in " << adresse;
 }
 
-std::ostream& operator<<(std::ostream& out, const Student& student)
-{
-	student.ausgabe(out);
-
-	return out;
-}
-
 bool Student::operator==(const Student& student)
 {
 	if (student.matNr == this->matNr) {
@@ -102,11 +95,7 @@ bool Student::operator>(const Student& student)
 	return false;
 }
 
-std::ostream&& operator << (std::ostream& out, const Student& student)
-{
-	out << "Matrikelnummer: " << student.getMatNr() << std::endl;
-	out << "Name: " << student.getName() << std::endl;
-	out << "Geburtstag: " << student.getGeburtstag() << std::endl;
-	out << "Adresse: " << student.getAdresse();
-	return out;
+std::ostream& operator<<(std::ostream& out, const Student& student) {
+    student.ausgabe(out);
+    return out;
 }

@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <algorithm>
 
 #include "Student.h"
 
@@ -35,6 +36,7 @@ int main()
                   << "(7): Datenelement vorne löschen" << std::endl
                   << "(8): Daten aus einer Datei einlesen" << std::endl
                   << "(9): Daten in eine Datei sichern" << std::endl
+				  << "(a): Sortieren nach MatNr" << std::endl
                   << "(0): Beenden" << std::endl;
         std::cin >> abfrage;
         std::cin.ignore(10, '\n');
@@ -110,17 +112,31 @@ int main()
 				}
                 break;
 
-            // Datenelement an Index löschen
+            // Datenelement nach MatNr löschen
             case '4':
             	{
-            		unsigned int index = 1;
+            		if (studentenListe.empty()) {
+						std::cout << "Die Liste ist leer. Kein Student zum Loeschen vorhanden." << std::endl;
+					}
 
-					std::cout << "Stelle (Start 0): ";
-					std::cin >> index;
+            		unsigned int matNrToFind;
+					std::cout << "MatNr: ";
+					std::cin >> matNrToFind;
+
 					std::cin.ignore(10, '\n');
 
-					it = studentenListe.begin() + index;
-					studentenListe.erase(it);
+					Student student(matNrToFind, "", "", "");
+
+					auto it = std::find(studentenListe.begin(), studentenListe.end(), student);
+
+					if(it != studentenListe.end())
+					{
+						studentenListe.erase(it);
+					}
+					else
+					{
+						std::cout << "Student nicht gefunden." << std::endl;
+					}
 				}
 				break;
 
@@ -214,6 +230,21 @@ int main()
 						ausgabe << (*it).getName() << std::endl;
 						ausgabe << (*it).getGeburtstag() << std::endl;
 						ausgabe << (*it).getAdresse() << std::endl;
+					}
+				}
+				break;
+
+			case 'a':
+				{
+					if (studentenListe.empty()) {
+						std::cout << "Die Liste ist leer. Nichts zu sortieren." << std::endl;
+					}
+
+					std::sort(studentenListe.begin(), studentenListe.end());
+
+					std::cout << "\n--- Sortierte Studentenliste ---" << std::endl;
+					for (const auto& student : studentenListe) {
+						std::cout << student << std::endl;
 					}
 				}
 				break;
