@@ -5,11 +5,13 @@
 #include <QGraphicsView>
 #include <QRandomGenerator>
 #include <QMessageBox>
+#include <QFileDialog>
 #include "map.h"
 #include "dialog.h"
 #include "dialogstreet.h"
 #include "mapio.h"
 #include "mapionrw.h"
+#include "mapiofileinput.h"
 #include "dijkstra.h"
 
 QT_BEGIN_NAMESPACE
@@ -52,6 +54,8 @@ private slots:
     void on_pushButton_testDijkstra_clicked();
 
     void on_pushButton_addStreet_clicked();
+
+    void on_pushButton_fileInput_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -15,10 +15,50 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout" columnstretch="0,1">
-    <item row="2" column="0">
-     <widget class="QLineEdit" name="lineEdit_cityZiel">
+    <item row="0" column="1" rowspan="15">
+     <widget class="QGraphicsView" name="graphicsView"/>
+    </item>
+    <item row="13" column="0">
+     <widget class="QPushButton" name="pushButton_testDijkstra">
+      <property name="text">
+       <string>Test Dijkstra</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="pushButton_addCity">
+      <property name="text">
+       <string>Add City</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QPushButton" name="pushButton_testMap">
+      <property name="text">
+       <string>Test Map</string>
+      </property>
+     </widget>
+    </item>
+    <item row="14" column="0">
+     <spacer name="spacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLineEdit" name="lineEdit_cityStart">
       <property name="placeholderText">
-       <string>Ziel</string>
+       <string>Start</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -26,6 +66,13 @@
      <widget class="QLabel" name="label_eingabe">
       <property name="text">
        <string>Djikstra Suche</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QCheckBox" name="checkBox_testVerbergen">
+      <property name="text">
+       <string>Test verbergen</string>
       </property>
      </widget>
     </item>
@@ -39,68 +86,17 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="pushButton_addCity">
-      <property name="text">
-       <string>Add City</string>
-      </property>
-     </widget>
-    </item>
-    <item row="13" column="0">
-     <spacer name="spacer">
-      <property name="orientation">
-       <enum>Qt::Orientation::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="12" column="0">
-     <widget class="QPushButton" name="pushButton_testDijkstra">
-      <property name="text">
-       <string>Test Dijkstra</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QCheckBox" name="checkBox_testVerbergen">
-      <property name="text">
-       <string>Test verbergen</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLineEdit" name="lineEdit_cityStart">
+    <item row="2" column="0">
+     <widget class="QLineEdit" name="lineEdit_cityZiel">
       <property name="placeholderText">
-       <string>Start</string>
-      </property>
-      <property name="clearButtonEnabled">
-       <bool>true</bool>
+       <string>Ziel</string>
       </property>
      </widget>
     </item>
-    <item row="10" column="0">
-     <widget class="QPushButton" name="pushButton_testStreet">
+    <item row="5" column="0">
+     <widget class="QPushButton" name="pushButton_addStreet">
       <property name="text">
-       <string>Test Street</string>
-      </property>
-     </widget>
-    </item>
-    <item row="11" column="0">
-     <widget class="QPushButton" name="pushButton_testAbsMap">
-      <property name="text">
-       <string>Test Abstract Map</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0">
-     <widget class="QPushButton" name="pushButton_testCity">
-      <property name="text">
-       <string>Test City</string>
+       <string>Add Street</string>
       </property>
      </widget>
     </item>
@@ -111,20 +107,31 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1" rowspan="14">
-     <widget class="QGraphicsView" name="graphicsView"/>
-    </item>
-    <item row="9" column="0">
-     <widget class="QPushButton" name="pushButton_testMap">
+    <item row="12" column="0">
+     <widget class="QPushButton" name="pushButton_testAbsMap">
       <property name="text">
-       <string>Test Map</string>
+       <string>Test Abstract Map</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="pushButton_addStreet">
+    <item row="11" column="0">
+     <widget class="QPushButton" name="pushButton_testStreet">
       <property name="text">
-       <string>Add Street</string>
+       <string>Test Street</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QPushButton" name="pushButton_testCity">
+      <property name="text">
+       <string>Test City</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QPushButton" name="pushButton_fileInput">
+      <property name="text">
+       <string>File Input</string>
       </property>
      </widget>
     </item>

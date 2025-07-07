@@ -9,8 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->graphicsView->setScene(&scene);
 
-    MapIoNrw mapionrw;
-    mapionrw.fillMap(map);
+    mapio = new MapIoNrw();
 }
 
 MainWindow::~MainWindow()
@@ -117,6 +116,8 @@ void MainWindow::on_pushButton_addCity_clicked()
 
 void MainWindow::on_pushButton_fillMap_clicked()
 {
+    scene.clear();
+    mapio->fillMap(map);
     map.draw(scene);
 }
 
@@ -227,3 +228,15 @@ void MainWindow::on_pushButton_addStreet_clicked()
     dialogStreet.exec();
     map.draw(scene);
 }
+
+void MainWindow::on_pushButton_fileInput_clicked()
+{
+    QString cityFile = QFileDialog::getOpenFileName(this, tr("Open city file"), QString("C:\\Projekte\\rwth-eti-pi1-ss25\\vorlagen\\Versuch09\\txtFiles"), tr("Text Files (*.txt);;All Files (*.*)"));
+    QString streetFile = QFileDialog::getOpenFileName(this, tr("Open street file"), QString("C:\\Projekte\\rwth-eti-pi1-ss25\\vorlagen\\Versuch09\\txtFiles"), tr("Text Files (*.txt);;All Files (*.*)"));
+
+    scene.clear();
+    mapio = new MapIoFileinput(cityFile, streetFile);
+    mapio->fillMap(map);
+    map.draw(scene);
+}
+
