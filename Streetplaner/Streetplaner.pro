@@ -12,6 +12,7 @@ SOURCES += \
     abstractmap.cpp \
     city.cpp \
     dialog.cpp \
+    dialogstreet.cpp \
     dijkstra.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     abstractmap.h \
     city.h \
     dialog.h \
+    dialogstreet.h \
     dijkstra.h \
     mainwindow.h \
     map.h \
@@ -33,6 +35,7 @@ HEADERS += \
 
 FORMS += \
     dialog.ui \
+    dialogstreet.ui \
     mainwindow.ui
 
 # Default rules for deployment.

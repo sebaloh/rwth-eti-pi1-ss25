@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include "map.h"
 #include "dialog.h"
+#include "dialogstreet.h"
 #include "mapio.h"
 #include "mapionrw.h"
 #include "dijkstra.h"
@@ -49,6 +50,8 @@ private slots:
     void on_pushButton_testAbsMap_clicked();
 
     void on_pushButton_testDijkstra_clicked();
+
+    void on_pushButton_addStreet_clicked();
 
 private:
     Ui::MainWindow *ui;

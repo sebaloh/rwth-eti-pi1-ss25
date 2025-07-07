@@ -89,12 +89,16 @@ void MainWindow::on_checkBox_testVerbergen_clicked()
         ui->pushButton_testCity->hide();
         ui->pushButton_testMap->hide();
         ui->pushButton_testStreet->hide();
+        ui->pushButton_testAbsMap->hide();
+        ui->pushButton_testDijkstra->hide();
     }
     else
     {
         ui->pushButton_testCity->show();
         ui->pushButton_testMap->show();
         ui->pushButton_testStreet->show();
+        ui->pushButton_testAbsMap->show();
+        ui->pushButton_testDijkstra->show();
     }
 }
 
@@ -216,3 +220,10 @@ void MainWindow::on_pushButton_testDijkstra_clicked()
     }
 }
 
+
+void MainWindow::on_pushButton_addStreet_clicked()
+{
+    DialogStreet dialogStreet(this, &map);
+    dialogStreet.exec();
+    map.draw(scene);
+}
